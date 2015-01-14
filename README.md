@@ -1,5 +1,11 @@
 # Purescript application scaffold
 
+## Features
+
+* Makefile-based compilation and running
+* Generates static websites
+* Includes React
+
 ## Requirements
 
 * Haskell & Cabal

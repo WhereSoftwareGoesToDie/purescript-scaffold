@@ -8,7 +8,7 @@ components = $(shell find bower_components -type f \( -name '*.purs' -and \! -pa
 
 .SUFFIXES: .js .purs
 
-all: clean $(objects)
+all: clean $(objects) build/lib/react.js
 
 clean:
 	@rm -rf build
@@ -21,6 +21,12 @@ build:
 
 build/scripts: build bower_components
 	@mkdir -p build/scripts
+
+build/lib: build bower_components
+	@mkdir -p build/lib
+
+build/lib/react.js: build/lib
+	@cp bower_components/react/react.min.js build/lib/react.js
 
 build/scripts/%.js: module = $(notdir $(basename $<))
 build/scripts/%.js: src/%.purs build/scripts
